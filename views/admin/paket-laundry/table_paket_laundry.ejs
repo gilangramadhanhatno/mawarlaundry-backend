@@ -1,0 +1,36 @@
+<table id="example2" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>No</th>
+      <!-- <th>ID Paket</th> -->
+      <th>Nama Paket</th>
+      <th>Waktu Kerja</th>
+      <th>Harga/kg</th>
+      <!-- <th>Berat Minimal</th> -->
+      <!-- <th>Jenis Biaya</th> -->
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i = 0; i < paketLaundry.length; i++) { %>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= paketLaundry[i].name %></td>
+      <td><%= paketLaundry[i].waktuKerja %></td>
+      <td>Rp.<%= parseInt(paketLaundry[i].harga).toLocaleString("id-ID") %></td>
+      <td>
+        <form action="/paket-laundry/hapus/<%= paketLaundry[i]._id %>?_method=DELETE" method="post">
+          <a href="/paket-laundry/ubah/<%= paketLaundry[i]._id %> " class="btn btn-sm btn-warning mb-1 mt-1">
+            <i class="fas fa-pencil-alt"></i>
+            Ubah
+          </a>
+          <button class="btn btn-sm btn-danger mb-1 mt-1">
+            <i class="fas fa-trash"></i>
+            Hapus
+          </button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

@@ -7,7 +7,9 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-var pelangganRouter = require("./app/pelanggan/router");
+const pelangganRouter = require("./app/pelanggan/router");
+
+const paketRouter = require("./app/paket-laundry/router");
 
 var app = express();
 
@@ -33,6 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/adminlte", express.static(path.join(__dirname, "/node_modules/admin-lte/")));
 
 app.use("/pelanggan", pelangganRouter);
+app.use("/paket-laundry", paketRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
